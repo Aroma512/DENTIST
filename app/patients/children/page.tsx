@@ -1,22 +1,26 @@
 import { Metadata } from 'next';
 import AppointmentForm from '@/components/AppointmentForm';
+import { s } from 'framer-motion/client';
 
 const childServices = [
   {
     id: 'pediatric-checkup',
-    title: 'Pediatric Dental Checkup',
+    name: 'Pediatric Dental Checkup',
+    duration: '30 min',
     description: 'Regular dental examination for children',
     fee: 75,
   },
   {
     id: 'fluoride',
-    title: 'Fluoride Treatment',
+    name: 'Fluoride Treatment',
+    duration: '20 min',
     description: 'Protective treatment for children\'s teeth',
     fee: 50,
   },
   {
     id: 'sealants',
-    title: 'Dental Sealants',
+    name: 'Dental Sealants',
+    duration: '45 min',
     description: 'Preventive treatment for cavities',
     fee: 60,
   },
@@ -36,8 +40,9 @@ export default function ChildrenDental() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {childServices.map((service) => (
             <div key={service.id} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.name}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
+              <p className="text-gray-600 mb-4">Duration: {service.duration}</p>
               <p className="text-teal-600 font-semibold">Fee: ${service.fee}</p>
             </div>
           ))}

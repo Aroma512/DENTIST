@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-interface Service {
+export interface Service {
   id: string;
   name: string;
   duration: string;
+  description?: string;
+  fee?: number;
 }
 
 interface AppointmentFormProps {
