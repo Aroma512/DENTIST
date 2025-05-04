@@ -2,7 +2,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const services = [
+interface Service {
+  id: string;
+  name: string;
+  duration: string;
+}
+
+interface AppointmentFormProps {
+  category?: string;
+  services?: Service[];
+}
+
+// Default services if none provided through props
+const defaultServices: Service[] = [
   { id: 'general-checkup', name: 'General Dental Checkup', duration: '30 min' },
   { id: 'teeth-whitening', name: 'Teeth Whitening', duration: '60 min' },
   { id: 'cleaning', name: 'Scaling & Polishing', duration: '45 min' },
@@ -12,7 +24,10 @@ const services = [
   { id: 'emergency', name: 'Emergency Dental Care', duration: 'Varies' }
 ];
 
-export default function AppointmentForm() {
+const AppointmentForm: React.FC<AppointmentFormProps> = ({ 
+  category,
+  services = defaultServices 
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -354,4 +369,6 @@ export default function AppointmentForm() {
       )}
     </div>
   );
-}
+};
+
+export default AppointmentForm;
