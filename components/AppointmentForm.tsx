@@ -2,47 +2,6 @@
 
 import React, { useState } from 'react';
 import type { DentalService } from '@/types/services';
-import { images } from '@/constants/images';
-import { FaTooth, FaSmile, FaTeethOpen, FaChild } from 'react-icons/fa';
-
-interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  icon: React.ComponentType;
-}
-
-const services: ServiceItem[] = [
-  {
-    id: 'general',
-    title: 'General Dentistry',
-    description: 'Comprehensive oral care including cleanings, fillings, and preventative treatments.',
-    image: images.services.general,
-    icon: FaTooth,
-  },
-  {
-    id: 'cavities',
-    title: 'Cavity Treatment',
-    description: 'Treatment for tooth decay and cavities with modern filling solutions.',
-    image: images.services.general,
-    icon: FaTooth,
-  },
-  {
-    id: 'gum-disease',
-    title: 'Gum Disease Treatment',
-    description: 'Specialized care for gingivitis and periodontal disease.',
-    image: images.services.general,
-    icon: FaTeethOpen,
-  },
-  {
-    id: 'tooth-pain',
-    title: 'Emergency Dental Care',
-    description: 'Immediate care for severe tooth pain and dental emergencies.',
-    image: images.services.general,
-    icon: FaSmile,
-  }
-];
 
 interface AppointmentFormProps {
   category: string;
