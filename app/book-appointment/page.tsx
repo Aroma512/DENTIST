@@ -1,11 +1,29 @@
 import React from 'react';
 import AppointmentForm from '@/components/AppointmentForm';
 import { Metadata } from 'next';
+import type { DentalService } from '@/types/services';
 
 export const metadata: Metadata = {
   title: 'Book an Appointment | DentCare',
   description: 'Schedule your dental appointment with our experienced team of professionals.',
 };
+
+const appointmentServices: DentalService[] = [
+  {
+    id: 'general-checkup',
+    name: 'General Checkup',
+    duration: '30 min',
+    description: 'Regular dental examination and cleaning',
+    fee: 80,
+  },
+  {
+    id: 'teeth-cleaning',
+    name: 'Professional Teeth Cleaning',
+    duration: '45 min',
+    description: 'Deep cleaning and plaque removal',
+    fee: 100,
+  },
+];
 
 export default function BookAppointment() {
   return (
@@ -18,7 +36,10 @@ export default function BookAppointment() {
           </p>
         </div>
         
-        <AppointmentForm />
+        <AppointmentForm 
+          category="general" 
+          services={appointmentServices} 
+        />
         
         <div className="mt-16">
           <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">What to Expect</h2>
